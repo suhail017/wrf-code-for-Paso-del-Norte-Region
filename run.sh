@@ -16,9 +16,9 @@ echo enter directory
 
 read pwd
 
-#rm /$pwd/gfs-anl/*.*
+rm /$pwd/gfs-anl/*.*
 
-echo wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month$date/*.grb2
+ wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month$date/*.grb2
 
 
 sed -i '6 c\
@@ -41,7 +41,7 @@ if [ $date -eq 09 ]
 
 then
 
-echo wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month'10'/*.grb2
+ wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month'10'/*.grb2
 
 sed -i '4 c\
 start_date ='"'$year-$month-$date"_"06:00:00'"','"'$year-$month-$date"_"06:00:00'"','"'$year-$month-$date"_"06:00:00'"''  /$pwd/WPS/namelist.wps
@@ -66,7 +66,7 @@ if  [ $date -eq 08 ]
 
 then 
 
- # wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month'09'/*.grb2#
+  wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month'09'/*.grb2#
 
 sed -i '4 c\
 start_date ='"'$year-$month-$date"_"06:00:00'"','"'$year-$month-$date"_"06:00:00'"','"'$year-$month-$date"_"06:00:00'"''  /$pwd/WPS/namelist.wps
@@ -91,7 +91,7 @@ if [ $date -gt 10 ]
 
 then 
 
-# wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month$((date+1))/*.grb2
+ wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month$((date+1))/*.grb2
 
 sed -i '4 c\
 start_date ='"'$year-$month-$date"_"06:00:00'"','"'$year-$month-$date"_"06:00:00'"','"'$year-$month-$date"_"06:00:00'"''  /$pwd/WPS/namelist.wps
@@ -110,7 +110,7 @@ sed -i '14 c\
 
 else
 
-#  wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month'0'$((date+1))/*.grb2
+  wget -P /$pwd/gfs-anl/  ftp://nomads.ncdc.noaa.gov/GFS/analysis_only/$year$month/$year$month'0'$((date+1))/*.grb2
 
 sed -i '4 c\
 start_date ='"'$year-$month-$date"_"06:00:00'"','"'$year-$month-$date"_"06:00:00'"','"'$year-$month-$date"_"06:00:00'"''  /$pwd/WPS/namelist.wps
@@ -169,9 +169,9 @@ mv wrfout_* output_$date
 else
 echo "ready for wrf run"
 fi
-
+#run the real program
 ./real.exe
-
+#Run the WRF program without the mpi
 ./wrf.exe
 
 
