@@ -1,4 +1,10 @@
-hola amigos
-hola putos
-holaaaaaaaaaaaaaaaaaaa bainchod
-shalar put er baal er github..chod khanki magi reee
+WRF error debugging tips:
+
+
+1. When showing Segemntation Fault/Core dumped/stops at a early time
+
+solution:
+1. Reduce the time step
+2. Change the ulimit -s 
+3. Change the CU_physics =0;
+4. Check the data sets (try different sources)
