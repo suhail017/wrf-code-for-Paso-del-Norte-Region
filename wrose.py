@@ -5,6 +5,8 @@ Created on Tue Nov 24 12:23:31 2020
 @author: Administrator
 """
 
+# Script for Creating Wind Rose in PdN region
+
 from windrose import WindroseAxes
 from matplotlib import pyplot as plt
 import matplotlib.cm as cm
